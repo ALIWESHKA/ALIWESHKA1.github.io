@@ -1,0 +1,256 @@
+:root {
+  --bg: #111;
+  --accent: #ff7700;
+  --accent2: #ffdd00;
+  --accent3: #a4ff00;
+  --text: #fff;
+  --shadow: rgba(255,119,0,0.3);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+  line-height: 1.7;
+}
+
+/* Шапка и навигация */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(0,0,0,0.95);
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 5%;
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--accent3);
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+}
+.nav-links a {
+  color: var(--text);
+  text-decoration: none;
+  margin-left: 2rem;
+  transition: color 0.3s ease;
+}
+.nav-links a:hover {
+  color: var(--accent2);
+}
+
+.burger {
+  display: none;
+  font-size: 1.8rem;
+  color: var(--accent3);
+  cursor: pointer;
+}
+
+/* Мобильное меню */
+@media (max-width: 900px) {
+  .nav-links {
+    flex-direction: column;
+    position: fixed;
+    background: var(--bg);
+    top: 0;
+    right: -100%;
+    width: 70%;
+    height: 100%;
+    transition: right 0.4s ease;
+    padding-top: 3rem;
+  }
+  .nav-links.active {
+    right: 0;
+  }
+  .nav-links li {
+    margin: 1rem 0;
+  }
+  .burger {
+    display: block;
+  }
+}
+
+/* Главный баннер */
+.banner {
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+.banner h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+
+/* Кнопки */
+.btn-orange {
+  background: var(--accent);
+  color: #000;
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.btn-orange:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px var(--shadow);
+}
+
+/* Преимущества */
+.features {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  margin: 2rem 0;
+  font-size: 1.1rem;
+  text-align: center;
+  max-width: 800px;
+}
+
+/* Форматы тренировок */
+.workout-formats {
+  margin-top: 2rem;
+  padding: 1rem 0;
+}
+.workout-formats h2 {
+  margin-bottom: 1rem;
+  text-align: center;
+  font-size: 1.8rem;
+}
+.workout-formats > div {
+  display: inline-block;
+  background: rgba(255,119,0,0.15);
+  padding: 0.8rem 1.5rem;
+  border-radius: 50px;
+  margin: 0 0.5rem 0.5rem;
+  font-size: 1rem;
+}
+
+/* Программы */
+.program {
+  margin: 1rem 0;
+  padding: 1rem;
+  background: rgba(255,255,255,0.05);
+  border-radius: 12px;
+}
+.program h3 {
+  margin-bottom: 0.5rem;
+}
+
+/* Карточки тренеров */
+.trainer-card {
+  background: rgba(255,255,255,0.05);
+  padding: 1.5rem;
+  border-radius: 12px;
+  text-align: center;
+  margin: 1rem 0;
+}
+.trainer-card img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+  border: 3px solid var(--accent3);
+}
+.trainer-card ul {
+  margin-top: 0.8rem;
+  text-align: left;
+  font-size: 0.95rem;
+}
+
+/* Абонементы */
+.rate-card {
+  background: rgba(255,255,255,0.05);
+  padding: 1.5rem;
+  border-radius: 12px;
+  margin: 1rem 0;
+  text-align: center;
+}
+.rate-card h3 {
+  margin-bottom: 0.5rem;
+  color: var(--accent2);
+}
+.rate-card p {
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+/* Контакты */
+.contacts {
+  margin: 2rem 0;
+}
+.contacts form {
+  max-width: 400px;
+  margin: 2rem auto 0;
+  padding: 1rem;
+  background: rgba(255,255,255,0.05);
+  border-radius: 12px;
+}
+.trial-form input {
+  display: block;
+  width: 100%;
+  margin: 0.5rem 0 1rem;
+  padding: 0.8rem 1rem;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+}
+
+/* Анимация по скроллу */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.animate-on-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Общие разделители */
+section {
+  padding: 4rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  position: relative;
+}
+h2::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 4px;
+  background: var(--accent3);
+  margin: 0.5rem auto 0;
+  border-radius: 2px;
+}
